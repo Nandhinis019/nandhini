@@ -1,4 +1,4 @@
-- [ ] Remove the .git directory from the parent folder (c:/Users/Nandhini/OneDrive/New folder)
-- [ ] Initialize a new Git repository in the HTML directory
-- [ ] Add all files in the HTML directory to Git
-- [ ] Commit the changes with an initial commit message
+- [x] Remove the .git directory from the parent folder (c:/Users/Nandhini/OneDrive/New folder)
+- [x] Initialize a new Git repository in the HTML directory
+- [x] Add all files in the HTML directory to Git
+- [x] Commit the changes with an initial commit message
