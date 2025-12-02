@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>ZOVA Railway — HTML Only (With Header, Footer, Navigation, Semantic Tags, Vertical Rules)</title>
+</head>
+
+<body bgcolor="lavender">
+
+<!-- ======================= -->
+<!--        HEADER           -->
+<!-- ======================= -->
+<header align="center">
+    <h1>🚆 ZOVA RAILWAY PORTAL</h1>
+    
+</header>
+
+<hr>
+
+<!-- ======================= -->
+<!--        NAVIGATION       -->
+<!-- ======================= -->
+<nav>
+    <table width="100%" cellpadding="10">
+        <tr align="center" bgcolor="#e6e6ff">
+            <td><a href="#travel">Travel Details</a></td>
+            <td><a href="#passengers">Passengers</a></td>
+            <td><a href="#table">Passenger Table</a></td>
+            <td><a href="#seat">Seat Map</a></td>
+            <td><a href="#ticket">Ticket Preview</a></td>
+        </tr>
+    </table>
+</nav>
+
+<hr>
+
+<!-- LAYOUT WITH VERTICAL RULE -->
+<table width="100%">
+<tr>
+
+<!-- LEFT SIDE CONTENT -->
+<td width="70%" valign="top">
+
+<!-- ======================= -->
+<!--     MAIN BOOKING FORM   -->
+<!-- ======================= -->
+<section>
+<form method="get" action="#" enctype="multipart/form-data">
+
+<!-- ========== TRAVEL DETAILS ========== -->
+<article id="travel">
+<fieldset>
+    <legend><b>🚉 Travel Details</b></legend>
+
+    <label>From Station:
+        <select name="from" required>
+            <option value="">--Select--</option>
+            <option>Chennai</option>
+            <option>Coimbatore</option>
+            <option>Bangalore</option>
+            <option>Hyderabad</option>
+        </select>
+    </label><br><br>
+
+    <label>To Station:
+        <select name="to" required>
+            <option value="">--Select--</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Kolkata</option>
+            <option>Goa</option>
+        </select>
+    </label><br><br>
+
+    <label>Travel Date: <input type="date" required></label><br><br>
+    <label>Travel Time: <input type="time" required></label><br><br>
+    <label>Month: <input type="month" required></label><br><br>
+
+    <label>Ticket Type:
+        <select required>
+            <option value="">--Select--</option>
+            <option>General</option>
+            <option>Tatkal</option>
+            <option>Ladies Quota</option>
+            <option>Senior Citizen</option>
+        </select>
+    </label>
+</fieldset>
+</article>
+
+<br>
+
+<!-- ========== PASSENGERS ========== -->
+<article id="passengers">
+<fieldset>
+    <legend><b>👤 Passenger Details (Up to 3)</b></legend>
+
+    <fieldset>
+        <legend>Passenger 1</legend>
+        <label>Name: <input type="text" required></label><br><br>
+        <label>Age: <input type="number" required></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}" required>
+        </label><br><br>
+        <label>Upload ID: <input type="file" required></label>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Passenger 2 (optional)</legend>
+        <label>Name: <input type="text"></label><br><br>
+        <label>Age: <input type="number"></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}">
+        </label><br><br>
+        <label>Upload ID: <input type="file"></label>
+    </fieldset>
+
+    <br>
+
+    <fieldset>
+        <legend>Passenger 3 (optional)</legend>
+        <label>Name: <input type="text"></label><br><br>
+        <label>Age: <input type="number"></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}">
+        </label><br><br>
+        <label>Upload ID: <input type="file"></label>
+    </fieldset>
+
+</fieldset>
+</article>
+
+<br>
+
+<!-- ========== PASSENGER TABLE ========== -->
+<article id="table">
+<h3>👥 Passenger Table with Colspan / Rowspan</h3>
+
+<table border="1" cellpadding="10" cellspacing="0">
+
+    <tr bgcolor="#cfe2ff">
+        <th colspan="5" align="center"><h3>📄 ZOVA Passenger Summary</h3></th>
+    </tr>
+
+    <tr bgcolor="#e6e6ff">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Aadhaar</th>
+        <th>Upload</th>
+    </tr>
+
+    <!-- Rowspan -->
+    <tr>
+        <td rowspan="2">
+            <input type="text" placeholder="Passenger 1" required>
+        </td>
+        <td><input type="number" required></td>
+        <td>
+            <select required>
+                <option value="">--Select--</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </td>
+        <td><input type="text" placeholder="1234 5678 9123" required></td>
+        <td><input type="file" required></td>
+    </tr>
+
+    <tr>
+        <td colspan="4" align="center"><i>Extra Notes for Passenger 1</i></td>
+    </tr>
+
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td>
+            <select>
+                <option value="">--Select--</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </td>
+        <td><input type="text" placeholder="1234 5678 9123"></td>
+        <td><input type="file"></td>
+    </tr>
+
+</table>
+</article>
+
+<br>
+
+<!-- ========== SEAT MAP ========== -->
+<article id="seat">
+<fieldset>
+    <legend><b>🪑 Seat Map</b></legend>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr bgcolor="#d9e6ff">
+            <th colspan="5">Seat Layout</th>
+        </tr>
+
+        <tr align="center">
+            <th></th><th>1</th><th>2</th><th>3</th><th>4</th>
+        </tr>
+
+        <tr bgcolor="#e0f7ff" align="center">
+            <td><b>A</b></td>
+            <td><input type="checkbox"> A1</td>
+            <td><input type="checkbox"> A2</td>
+            <td><input type="checkbox"> A3</td>
+            <td><input type="checkbox"> A4</td>
+        </tr>
+
+        <tr bgcolor="#e0ffe5" align="center">
+            <td><b>B</b></td>
+            <td><input type="checkbox"> B1</td>
+            <td><input type="checkbox"> B2</td>
+            <td><input type="checkbox"> B3</td>
+            <td><input type="checkbox"> B4</td>
+        </tr>
+
+    </table>
+
+</fieldset>
+</article>
+
+<br>
+
+<input type="checkbox" required> I accept Terms<br><br>
+<input type="reset"> <input type="submit">
+
+</form>
+</section>
+
+</td>
+
+<!-- ======================= -->
+<!--     RIGHT VERTICAL LINE -->
+<!-- ======================= -->
+<td width="3%" style="border-left:3px solid black;"></td>
+
+<!-- ======================= -->
+<!--     ASIDE PANEL         -->
+<!-- ======================= -->
+<td width="27%" valign="top">
+
+<aside>
+    <h3>📌 Quick Info</h3>
+    <ul>
+<li>💧 Don't waste water</li>
+<li>🚭 No smoking</li>
+<li>🌍 Save world</li>
+<li>🌱 Go green</li>
+<li>🍀 Save green</li>
+
+    </ul>
+
+    <h3>🕒 Office Hours</h3>
+    <p>Mon–Sat: 8 AM – 8 PM</p>
+</aside>
+
+</td>
+
+</tr>
+</table>
+
+<hr>
+
+<!-- ======================= -->
+<!--         FOOTER          -->
+<!-- ======================= -->
+<footer align="center">
+    <p>© 2025 ZOVA Railway. All Rights Reserved.</p>
+</footer>
+
+</body>
+</html>
+
+
