@@ -1,193 +1,303 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZOVA — Portfolio (HTML Only)</title>
+    <meta charset="utf-8">
+    <title>ZOVA Railway — HTML Only (With Header, Footer, Navigation, Semantic Tags, Vertical Rules)</title>
 </head>
 
 <body bgcolor="lavender">
 
-<!-- HEADER -->
-<h1>ZOVA</h1>
-<small>Designed by Nandhini S</small>
+<!-- ======================= -->
+<!--        HEADER           -->
+<!-- ======================= -->
+<header align="center">
+    <h1>🚆 ZOVA RAILWAY PORTAL</h1>
+    
+</header>
 
 <hr>
 
-<!-- MENU -->
-<h2 id="menu">Welcome</h2>
-<p>This is the HTML-only version of your portfolio.</p>
-
-<h2>Chapters</h2>
-
-<ol>
-    <li><a href="#chapter1">Chapter 1 — Code</a></li>
-    <li><a href="#chapter2">Chapter 2 — Chemistry</a></li>
-    <li><a href="#chapter3">Chapter 3 — Address</a></li>
-    <li><a href="#chapter4">Chapter 4 — Lists</a></li>
-    <li><a href="#chapter5">Chapter 5 — Remembering</a></li>
-</ol>
-
-<hr>
-
-<!-- PREVIEW SECTION -->
-<h3>Preview</h3>
-
-<p><q>Typing any text here will show in quotes automatically.</q></p>
-
-<p>Examples: H<sub>2</sub>O | CH<sub>4</sub> | 10<sup>2</sup></p>
-
-<ul>
-    <li>Apple</li>
-    <li>Mango</li>
-    <li>Peach</li>
-</ul>
+<!-- ======================= -->
+<!--        NAVIGATION       -->
+<!-- ======================= -->
+<nav>
+    <table width="100%" cellpadding="10">
+        <tr align="center" bgcolor="#e6e6ff">
+            <td><a href="#travel">Travel Details</a></td>
+            <td><a href="#passengers">Passengers</a></td>
+            <td><a href="#table">Passenger Table</a></td>
+            <td><a href="#seat">Seat Map</a></td>
+            <td><a href="#ticket">Ticket Preview</a></td>
+        </tr>
+    </table>
+</nav>
 
 <hr>
 
-<!-- ******************************** -->
-<!-- *********** CHAPTER 1 *********** -->
-<!-- ******************************** -->
+<!-- LAYOUT WITH VERTICAL RULE -->
+<table width="100%">
+<tr>
 
-<details id="chapter1">
-    <summary><h2>Chapter 1 — Code</h2></summary>
+<!-- LEFT SIDE CONTENT -->
+<td width="70%" valign="top">
 
-    <h3>C Program Example</h3>
-    <pre>
-#include <stdio.h>
+<!-- ======================= -->
+<!--     MAIN BOOKING FORM   -->
+<!-- ======================= -->
+<section>
+<form method="get" action="#" enctype="multipart/form-data">
 
-int main() {
-    printf("\"Hello World\"");
-    return 0;
-}
-    </pre>
+<!-- ========== TRAVEL DETAILS ========== -->
+<article id="travel">
+<fieldset>
+    <legend><b>🚉 Travel Details</b></legend>
 
-    <h3>Git Commands</h3>
-    <pre>
-git init
-git add .
-git commit -m "Final"
-git push -u origin main
-    </pre>
+    <label>From Station:
+        <select name="from" required>
+            <option value="">--Select--</option>
+            <option>Chennai</option>
+            <option>Coimbatore</option>
+            <option>Bangalore</option>
+            <option>Hyderabad</option>
+        </select>
+    </label><br><br>
 
-    <p><a href="#menu">⬅ Back to Menu</a></p>
+    <label>To Station:
+        <select name="to" required>
+            <option value="">--Select--</option>
+            <option>Delhi</option>
+            <option>Mumbai</option>
+            <option>Kolkata</option>
+            <option>Goa</option>
+        </select>
+    </label><br><br>
 
-</details>
+    <label>Travel Date: <input type="date" required></label><br><br>
+    <label>Travel Time: <input type="time" required></label><br><br>
+    <label>Month: <input type="month" required></label><br><br>
 
-<hr>
+    <label>Ticket Type:
+        <select required>
+            <option value="">--Select--</option>
+            <option>General</option>
+            <option>Tatkal</option>
+            <option>Ladies Quota</option>
+            <option>Senior Citizen</option>
+        </select>
+    </label>
+</fieldset>
+</article>
 
-<!-- ******************************** -->
-<!-- *********** CHAPTER 2 *********** -->
-<!-- ******************************** -->
+<br>
 
-<details id="chapter2">
-    <summary><h2>Chapter 2 — Chemistry</h2></summary>
+<!-- ========== PASSENGERS ========== -->
+<article id="passengers">
+<fieldset>
+    <legend><b>👤 Passenger Details (Up to 3)</b></legend>
 
-    <p>Examples of chemical formulas:</p>
+    <fieldset>
+        <legend>Passenger 1</legend>
+        <label>Name: <input type="text" required></label><br><br>
+        <label>Age: <input type="number" required></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}" required>
+        </label><br><br>
+        <label>Upload ID: <input type="file" required></label>
+    </fieldset>
 
-    <p>Water = H<sub>2</sub>O</p>
-    <p>Carbon dioxide = CO<sub>2</sub></p>
-    <p>Glucose = C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></p>
+    <br>
 
-    <p>Acid–Base Reaction:</p>
-    <p>HCl + H<sub>2</sub>O → H<sub>3</sub>O<sup>+</sup> + Cl<sup>−</sup></p>
+    <fieldset>
+        <legend>Passenger 2 (optional)</legend>
+        <label>Name: <input type="text"></label><br><br>
+        <label>Age: <input type="number"></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}">
+        </label><br><br>
+        <label>Upload ID: <input type="file"></label>
+    </fieldset>
 
-    <p><a href="#menu">⬅ Back to Menu</a></p>
+    <br>
 
-</details>
+    <fieldset>
+        <legend>Passenger 3 (optional)</legend>
+        <label>Name: <input type="text"></label><br><br>
+        <label>Age: <input type="number"></label><br><br>
+        <label>Gender:
+            <input type="radio"> M
+            <input type="radio"> F
+            <input type="radio"> O
+        </label><br><br>
+        <label>Aadhaar:
+            <input type="text" placeholder="1234 5678 9123" 
+            pattern="[0-9]{4} [0-9]{4} [0-9]{4}">
+        </label><br><br>
+        <label>Upload ID: <input type="file"></label>
+    </fieldset>
 
-<hr>
+</fieldset>
+</article>
 
-<!-- ******************************** -->
-<!-- *********** CHAPTER 3 *********** -->
-<!-- ******************************** -->
+<br>
 
-<details id="chapter3">
-    <summary><h2>Chapter 3 — Address</h2></summary>
+<!-- ========== PASSENGER TABLE ========== -->
+<article id="table">
+<h3>👥 Passenger Table with Colspan / Rowspan</h3>
 
-    <address>
-        <b>Nandhini S</b><br>
-        12/34 Gandhi Street<br>
-        Coimbatore – 641002<br>
-        Tamil Nadu, India<br>
-    </address>
+<table border="1" cellpadding="10" cellspacing="0">
 
-    <p><a href="#menu">⬅ Back to Menu</a></p>
+    <tr bgcolor="#cfe2ff">
+        <th colspan="5" align="center"><h3>📄 ZOVA Passenger Summary</h3></th>
+    </tr>
 
-</details>
+    <tr bgcolor="#e6e6ff">
+        <th>Name</th>
+        <th>Age</th>
+        <th>Gender</th>
+        <th>Aadhaar</th>
+        <th>Upload</th>
+    </tr>
 
-<hr>
+    <!-- Rowspan -->
+    <tr>
+        <td rowspan="2">
+            <input type="text" placeholder="Passenger 1" required>
+        </td>
+        <td><input type="number" required></td>
+        <td>
+            <select required>
+                <option value="">--Select--</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </td>
+        <td><input type="text" placeholder="1234 5678 9123" required></td>
+        <td><input type="file" required></td>
+    </tr>
 
-<!-- ******************************** -->
-<!-- *********** CHAPTER 4 *********** -->
-<!-- ******************************** -->
+    <tr>
+        <td colspan="4" align="center"><i>Extra Notes for Passenger 1</i></td>
+    </tr>
 
-<details id="chapter4">
-    <summary><h2>Chapter 4 — Lists</h2></summary>
+    <tr>
+        <td><input type="text"></td>
+        <td><input type="number"></td>
+        <td>
+            <select>
+                <option value="">--Select--</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+        </td>
+        <td><input type="text" placeholder="1234 5678 9123"></td>
+        <td><input type="file"></td>
+    </tr>
 
-    <h3>Unordered List</h3>
+</table>
+</article>
+
+<br>
+
+<!-- ========== SEAT MAP ========== -->
+<article id="seat">
+<fieldset>
+    <legend><b>🪑 Seat Map</b></legend>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+
+        <tr bgcolor="#d9e6ff">
+            <th colspan="5">Seat Layout</th>
+        </tr>
+
+        <tr align="center">
+            <th></th><th>1</th><th>2</th><th>3</th><th>4</th>
+        </tr>
+
+        <tr bgcolor="#e0f7ff" align="center">
+            <td><b>A</b></td>
+            <td><input type="checkbox"> A1</td>
+            <td><input type="checkbox"> A2</td>
+            <td><input type="checkbox"> A3</td>
+            <td><input type="checkbox"> A4</td>
+        </tr>
+
+        <tr bgcolor="#e0ffe5" align="center">
+            <td><b>B</b></td>
+            <td><input type="checkbox"> B1</td>
+            <td><input type="checkbox"> B2</td>
+            <td><input type="checkbox"> B3</td>
+            <td><input type="checkbox"> B4</td>
+        </tr>
+
+    </table>
+
+</fieldset>
+</article>
+
+<br>
+
+<input type="checkbox" required> I accept Terms<br><br>
+<input type="reset"> <input type="submit">
+
+</form>
+</section>
+
+</td>
+
+<!-- ======================= -->
+<!--     RIGHT VERTICAL LINE -->
+<!-- ======================= -->
+<td width="3%" style="border-left:3px solid black;"></td>
+
+<!-- ======================= -->
+<!--     ASIDE PANEL         -->
+<!-- ======================= -->
+<td width="27%" valign="top">
+
+<aside>
+    <h3>📌 Quick Info</h3>
     <ul>
-        <li>Apple</li>
-        <li>Banana</li>
-        <li>Orange</li>
+<li>💧 Don't waste water</li>
+<li>🚭 No smoking</li>
+<li>🌍 Save world</li>
+<li>🌱 Go green</li>
+<li>🍀 Save green</li>
+
     </ul>
 
-    <h3>Ordered List</h3>
-    <ol>
-        <li>Wake up</li>
-        <li>Brush</li>
-        <li>Study</li>
-    </ol>
+    <h3>🕒 Office Hours</h3>
+    <p>Mon–Sat: 8 AM – 8 PM</p>
+</aside>
 
-    <h3>Description List</h3>
-    <dl>
-        <dt>HTML</dt>
-        <dd>Structure of webpage</dd>
+</td>
 
-        <dt>CSS</dt>
-        <dd>Styling language</dd>
-
-        <dt>JS</dt>
-        <dd>Programming behavior</dd>
-    </dl>
-
-    <p><a href="#menu">⬅ Back to Menu</a></p>
-
-</details>
+</tr>
+</table>
 
 <hr>
 
-<!-- ******************************** -->
-<!-- *********** CHAPTER 5 *********** -->
-<!-- ******************************** -->
-
-<details id="chapter5">
-    <summary><h2>Chapter 5 — Remembering</h2></summary>
-
-    <h3>Study Techniques</h3>
-
-    <ul>
-        <li>Spaced repetition</li>
-        <li>Active recall</li>
-        <li>Teaching others</li>
-        <li>Writing notes</li>
-        <li>Practice problems</li>
-    </ul>
-
-    <p><a href="#menu">⬅ Back to Menu</a></p>
-
-</details>
-
-<hr>
+<!-- ======================= -->
+<!--         FOOTER          -->
+<!-- ======================= -->
+<footer align="center">
+    <p>© 2025 ZOVA Railway. All Rights Reserved.</p>
+</footer>
 
 </body>
 </html>
-
-
-
-
-
-
-
 
 
