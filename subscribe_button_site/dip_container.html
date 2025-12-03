@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dip Container</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f5f5f5;
+        }
+        h1 { margin-bottom: 20px; color: #333; }
+
+        /* Main outer dip container */
+        .main-dip {
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c72c48 100%);
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .main-dip h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        /* Container for the 3 inner dips */
+        .dips-wrapper {
+            display: flex;
+            flex-direction: row; /* row: horizontal | column: vertical | row-reverse: reversed horizontal | column-reverse: reversed vertical */
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* Individual inner dips */
+        .dip {
+            flex: 1;
+            min-width: 240px;
+            max-width: 280px;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            cursor: pointer;
+        }
+
+        /* Dip 1: Blue */
+        .dip-1 {
+            background: linear-gradient(180deg, #5ad0ff 0%, #2b7cff 100%);
+            color: white;
+        }
+
+        /* Dip 2: Green */
+        .dip-2 {
+            background: linear-gradient(180deg, #51cf66 0%, #2b8a3e 100%);
+            color: white;
+        }
+
+        /* Dip 3: Purple */
+        .dip-3 {
+            background: linear-gradient(180deg, #da77f2 0%, #9c36b5 100%);
+            color: white;
+        }
+
+        .dip h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+        }
+
+        .dip p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .dip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .dips-wrapper {
+                flex-direction: column;
+            }
+            .dip {
+                max-width: 100%;
+            }
+        }
+        /* Animated floating box styles */
+        .animated-section { margin: 22px auto; max-width: 900px; }
+        .floating-wrap { height: 320px; display:flex; align-items:center; justify-content:center; position:relative; }
+        .floating-box {
+            width: 220px;
+            height: 220px;
+            border-radius: 20px;
+            background: linear-gradient(135deg,#ff6b6b 0%, #ffb86b 50%, #ffd56b 100%);
+            box-shadow: 0 18px 40px rgba(255,107,107,0.18), 0 6px 18px rgba(0,0,0,0.12) inset;
+            display:flex; align-items:center; justify-content:center; color: white; font-weight:700; font-size:18px;
+            transform: translate3d(0,0,0);
+            animation: moveAround 8s ease-in-out infinite, hueShift 6s linear infinite;
+        }
+        .floating-box:hover { animation-play-state: paused; cursor: pointer; }
+
+        @keyframes moveAround {
+            0%   { transform: translate(0, 0) scale(1); }
+            20%  { transform: translate(120px, -40px) scale(1.03); }
+            40%  { transform: translate(220px, 80px) scale(1.06); }
+            60%  { transform: translate(100px, 200px) scale(1.03); }
+            80%  { transform: translate(-20px, 120px) scale(1.02); }
+            100% { transform: translate(0, 0) scale(1); }
+        }
+
+        @keyframes hueShift {
+            0% { filter: hue-rotate(0deg) saturate(1); }
+            25% { filter: hue-rotate(40deg) saturate(1.05); }
+            50% { filter: hue-rotate(80deg) saturate(1.08); }
+            75% { filter: hue-rotate(120deg) saturate(1.04); }
+            100% { filter: hue-rotate(0deg) saturate(1); }
+        }
+
+        @media (max-width: 640px) {
+            .floating-box { width: 160px; height: 160px; border-radius: 16px; }
+            .floating-wrap { height: 220px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Dip Container with Inner Dips</h1>
+
+    <!-- Section 1: Flex Direction ROW (Horizontal) -->
+    <div class="main-dip">
+        <h2>Dip Container - Flex Direction: ROW (Horizontal)</h2>
+        <div class="dips-wrapper" style="flex-direction: row;">
+
+            <!-- Dip 1: Blue -->
+            <div class="dip dip-1">
+                <h3>Dip 1 - Blue</h3>
+                <p>This is the first inner dip with a cool blue gradient. It contains unique content and styling.</p>
+                <p>Hover over me to see the lift effect!</p>
+            </div>
+
+            <!-- Dip 2: Green -->
+            <div class="dip dip-2">
+                <h3>Dip 2 - Green</h3>
+                <p>This is the second inner dip with a fresh green gradient. Each dip is independent and styled differently.</p>
+                <p>They align beautifully in a flex container.</p>
+            </div>
+
+            <!-- Dip 3: Purple -->
+            <div class="dip dip-3">
+                <h3>Dip 3 - Purple</h3>
+                <p>This is the third inner dip with a vibrant purple gradient. All three dips sit inside the main container.</p>
+                <p>Try hovering to see the interactive effect!</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Section 2: Flex Direction COLUMN (Vertical) -->
+    <div class="main-dip" style="background: linear-gradient(135deg, #4c6ef5 0%, #3b5bdb 50%, #2f5aa0 100%);">
+        <h2>Dip Container - Flex Direction: COLUMN (Vertical)</h2>
+        <div class="dips-wrapper" style="flex-direction: column;">
+
+            <!-- Dip 1: Blue -->
+            <div class="dip dip-1">
+                <h3>Dip 1 - Blue</h3>
+                <p>This is the first inner dip with a cool blue gradient. Stacked vertically using flex-direction: column.</p>
+                <p>Hover over me to see the lift effect!</p>
+            </div>
+
+            <!-- Dip 2: Green -->
+            <div class="dip dip-2">
+                <h3>Dip 2 - Green</h3>
+                <p>This is the second inner dip with a fresh green gradient. Now displayed below the first dip.</p>
+                <p>They align beautifully in a flex container.</p>
+            </div>
+
+            <!-- Dip 3: Purple -->
+            <div class="dip dip-3">
+                <h3>Dip 3 - Purple</h3>
+                <p>This is the third inner dip with a vibrant purple gradient. Stack continues downward.</p>
+                <p>Try hovering to see the interactive effect!</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Animated Box Section -->
+    <div class="animated-section">
+        <h2 style="text-align:center;margin:14px 0;color:#333;">Animated Floating Box</h2>
+        <div class="floating-wrap">
+            <div class="floating-box" role="img" aria-label="Animated colorful floating box">Glow Box</div>
+        </div>
+    </div>
+
+</body>
+</html>

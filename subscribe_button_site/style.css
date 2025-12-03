@@ -1,0 +1,18 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding-top: 40px;
+}
+
+.subscribe-btn {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 20px 60px; /* Bigger size */
+    font-size: 26px; /* Bigger text */
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+

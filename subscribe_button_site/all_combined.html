@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>All Combined Demos</title>
+    <style>
+/* ----------------- DIP CONTAINER STYLES ----------------- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, sans-serif; padding: 20px; background: #f6f8fb; color:#222; }
+h1 { margin-bottom: 20px; color: #333; }
+.main-dip { width: 100%; max-width: 900px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c72c48 100%); border-radius: 12px; box-shadow: 0 12px 30px rgba(0,0,0,0.15); }
+.main-dip h2 { color: white; margin-bottom: 20px; text-align: center; font-size: 24px; }
+.dips-wrapper { display: flex; flex-direction: row; gap: 16px; flex-wrap: wrap; justify-content: center; }
+.dip { flex: 1; min-width: 240px; max-width: 280px; padding: 16px; border-radius: 8px; box-shadow: 0 6px 16px rgba(0,0,0,0.1); transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; }
+.dip-1 { background: linear-gradient(180deg, #5ad0ff 0%, #2b7cff 100%); color: white; }
+.dip-2 { background: linear-gradient(180deg, #51cf66 0%, #2b8a3e 100%); color: white; }
+.dip-3 { background: linear-gradient(180deg, #da77f2 0%, #9c36b5 100%); color: white; }
+.dip h3 { font-size: 18px; margin-bottom: 10px; border-bottom: 2px solid rgba(255,255,255,0.3); padding-bottom: 8px; }
+.dip p { font-size: 14px; line-height: 1.5; margin-bottom: 8px; }
+.dip:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.2); }
+@media (max-width: 768px) { .dips-wrapper { flex-direction: column; } .dip { max-width: 100%; } }
+
+/* ----------------- ANIMATED FLOATING BOX STYLES ----------------- */
+.animated-section { margin: 22px auto; max-width: 900px; }
+.floating-wrap { height: 320px; display:flex; align-items:center; justify-content:center; position:relative; }
+.floating-box {
+    width: 220px; height: 220px; border-radius: 20px;
+    background: linear-gradient(135deg,#ff6b6b 0%, #ffb86b 50%, #ffd56b 100%);
+    box-shadow: 0 18px 40px rgba(255,107,107,0.18), 0 6px 18px rgba(0,0,0,0.12) inset;
+    display:flex; align-items:center; justify-content:center; color: white; font-weight:700; font-size:18px;
+    transform: translate3d(0,0,0);
+    animation: moveAround 8s ease-in-out infinite, hueShift 6s linear infinite;
+}
+.floating-box:hover { animation-play-state: paused; cursor: pointer; }
+@keyframes moveAround {
+    0%   { transform: translate(0, 0) scale(1); }
+    20%  { transform: translate(120px, -40px) scale(1.03); }
+    40%  { transform: translate(220px, 80px) scale(1.06); }
+    60%  { transform: translate(100px, 200px) scale(1.03); }
+    80%  { transform: translate(-20px, 120px) scale(1.02); }
+    100% { transform: translate(0, 0) scale(1); }
+}
+@keyframes hueShift {
+    0% { filter: hue-rotate(0deg) saturate(1); }
+    25% { filter: hue-rotate(40deg) saturate(1.05); }
+    50% { filter: hue-rotate(80deg) saturate(1.08); }
+    75% { filter: hue-rotate(120deg) saturate(1.04); }
+    100% { filter: hue-rotate(0deg) saturate(1); }
+}
+@media (max-width: 640px) { .floating-box { width: 160px; height: 160px; border-radius: 16px; } .floating-wrap { height: 220px; } }
+
+/* ----------------- TABLE & OVERFLOW STYLES (merged) ----------------- */
+/* Box styles used in table demos */
+.box1 { width: 200px; height: 120px; background-color: black; color: white; margin-bottom: 20px; text-align: center; line-height: 120px; font-weight: bold; position:absolute; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; z-index:100; }
+.box2 { width: 200px; height: 120px; background-color: red; color: white; margin-bottom: 20px; text-align: center; line-height: 120px; font-weight: bold; position:absolute; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; z-index:200; }
+.box3 { width: 200px; height: 120px; background-color: violet; color: white; text-align: center; line-height: 120px; font-weight: bold; position:absolute; transition: transform 0.18s ease, box-shadow 0.18s ease; cursor: pointer; z-index:300; }
+.box1 { top: 320px; left: 40px; }
+.box2 { top: 280px; left: 160px; }
+.box3 { top: 240px; left: 280px; }
+.box1:hover, .box2:hover, .box3:hover { z-index: 9999; transform: translateY(-8px) scale(1.06); box-shadow: 0 12px 24px rgba(0,0,0,0.22); }
+.moving-text { white-space: nowrap; font-size: 22px; animation: move 8s linear infinite; margin-bottom: 20px; }
+@keyframes move { 0% { transform: translateX(100%); } 100% { transform: translateX(-100%); } }
+.sticky-word { position: sticky; top: 0; background: yellow; padding: 5px; font-size: 20px; font-weight: bold; }
+.overflow-box { width: 340px; border: 1px solid #d0d7df; background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 40%, #e8f2ff 100%); padding: 10px; margin: 18px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.08); position: absolute; right: 24px; top: 120px; border-radius: 8px; overflow: hidden; transition: transform 0.18s ease, box-shadow 0.18s ease; }
+.overflow-box h3 { margin: 6px 0 10px 0; font-size: 18px; }
+.overflow-box .overflow-content { max-height: 140px; overflow: auto; padding-right: 6px; }
+.overflow-box .overflow-content p { margin: 8px 0; }
+.overflow-box h3 { background: linear-gradient(90deg,#2b7cff,#5ad0ff); color: white; margin: 0 -10px 10px -10px; padding: 8px 12px; font-weight: 600; border-top-left-radius: 8px; border-top-right-radius: 8px; }
+.overflow-box:hover { transform: translateY(-6px); box-shadow: 0 18px 36px rgba(20,60,120,0.18); }
+@media (max-width: 640px) { .overflow-box { position: static; width: 100%; margin: 12px 0; } .overflow-box h3 { margin: 6px 0 10px 0; border-radius: 4px; } }
+
+table { border-collapse: collapse; width: 100%; max-width: 900px; margin-top: 18px; }
+th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+th { background: #f4f4f4; text-align: left; }
+.overflow-cell { max-height: 140px; width: 100%; overflow: auto; padding-right: 8px; box-sizing: border-box; background: #fff; }
+.overflow-cell p { margin: 8px 0; line-height: 1.4; }
+
+/* Helpers */
+.container { max-width: 1000px; margin: 0 auto; }
+.section { background: white; padding: 18px; margin-bottom: 18px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+.box-area { min-height: 420px; position: relative; }
+
+/* End styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Combined Demos</h1>
+        <p class="section">This single page contains the Dip Container examples, the animated floating box, and the table demos (with overflow cells and z-index boxes).</p>
+
+        <!-- Dip Container (ROW) -->
+        <div class="main-dip">
+            <h2>Dip Container - Flex Direction: ROW (Horizontal)</h2>
+            <div class="dips-wrapper" style="flex-direction: row;">
+                <div class="dip dip-1">
+                    <h3>Dip 1 - Blue</h3>
+                    <p>This is the first inner dip with a cool blue gradient. It contains unique content and styling.</p>
+                    <p>Hover over me to see the lift effect!</p>
+                </div>
+                <div class="dip dip-2">
+                    <h3>Dip 2 - Green</h3>
+                    <p>This is the second inner dip with a fresh green gradient. Each dip is independent and styled differently.</p>
+                    <p>They align beautifully in a flex container.</p>
+                </div>
+                <div class="dip dip-3">
+                    <h3>Dip 3 - Purple</h3>
+                    <p>This is the third inner dip with a vibrant purple gradient. All three dips sit inside the main container.</p>
+                    <p>Try hovering to see the interactive effect!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dip Container (COLUMN) -->
+        <div class="main-dip" style="background: linear-gradient(135deg, #4c6ef5 0%, #3b5bdb 50%, #2f5aa0 100%); margin-top:18px;">
+            <h2>Dip Container - Flex Direction: COLUMN (Vertical)</h2>
+            <div class="dips-wrapper" style="flex-direction: column;">
+                <div class="dip dip-1">
+                    <h3>Dip 1 - Blue</h3>
+                    <p>This is the first inner dip with a cool blue gradient. Stacked vertically using flex-direction: column.</p>
+                    <p>Hover over me to see the lift effect!</p>
+                </div>
+                <div class="dip dip-2">
+                    <h3>Dip 2 - Green</h3>
+                    <p>This is the second inner dip with a fresh green gradient. Now displayed below the first dip.</p>
+                    <p>They align beautifully in a flex container.</p>
+                </div>
+                <div class="dip dip-3">
+                    <h3>Dip 3 - Purple</h3>
+                    <p>This is the third inner dip with a vibrant purple gradient. Stack continues downward.</p>
+                    <p>Try hovering to see the interactive effect!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Animated Floating Box -->
+        <div class="animated-section">
+            <h2 style="text-align:center;margin:14px 0;color:#333;">Animated Floating Box</h2>
+            <div class="floating-wrap">
+                <div class="floating-box" role="img" aria-label="Animated colorful floating box">Glow Box</div>
+            </div>
+        </div>
+
+        <!-- Table and boxes area -->
+        <div class="section box-area" style="margin-top:18px;">
+            <h2>Boxes with Z-Index & Notes</h2>
+            <p style="margin-bottom:12px;">Hover a box to bring it forward. The notes panel to the right demonstrates an overflow container.</p>
+
+            <div class="overflow-box" aria-label="Notes">
+                <h3>Notes</h3>
+                <div class="overflow-content">
+                    <p>This is the first paragraph inside the overflow box. It demonstrates how content will scroll when it exceeds the visible area.</p>
+                    <p>Second paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+                    <p>Third paragraph: Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+                    <p>Fourth paragraph: Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+                    <p>Fifth paragraph: Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora.</p>
+                    <p>Sixth paragraph: Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.</p>
+                </div>
+            </div>
+
+            <div class="box1">Box 1</div>
+            <div class="box2">Box 2</div>
+            <div class="box3">Box 3</div>
+        </div>
+
+        <!-- Moving paragraphs & sticky word section -->
+        <div class="section" style="margin-top:18px;">
+            <h2>Moving Text & Sticky Word</h2>
+            <p class="moving-text">This paragraph is moving continuously across the screen 🚀</p>
+            <p class="moving-text">Another moving paragraph slides by — watch it go!</p>
+            <p class="moving-text">Third moving line: animated and looping.</p>
+            <p style="margin-top:12px;">Here is a sentence with only one <span class="sticky-word">STICKY</span> word that remains constant at top while you scroll.</p>
+        </div>
+
+        <!-- Table demo -->
+        <div class="section">
+            <h2>Table with Overflowing Paragraphs</h2>
+            <p>This table demonstrates using the CSS <code>overflow</code> property inside table cells to keep cell sizes fixed while allowing inner content to scroll.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:160px">Item</th>
+                        <th>Details (scrollable)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1</td>
+                        <td class="overflow-cell">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+                            <p>Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+                            <p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+                            <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Row 2</td>
+                        <td class="overflow-cell">
+                            <p>Short paragraph only.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Row 3</td>
+                        <td class="overflow-cell">
+                            <p>Line A: Curabitur sodales ligula in libero.</p>
+                            <p>Line B: Sed dignissim lacinia nunc.</p>
+                            <p>Line C: Curabitur tortor. Pellentesque nibh.</p>
+                            <p>Line D: Aenean quam. In scelerisque sem at dolor.</p>
+                            <p>Line E: Maecenas mattis. Sed convallis tristique sem.</p>
+                            <p>Line F: Proin ut ligula vel nunc egestas porttitor.</p>
+                            <p>Line G: Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top:18px;">To change the visible height of the scrollable area, edit the <code>max-height</code> value in the <code>.overflow-cell</code> rule in the top &lt;style&gt; block.</p>
+        </div>
+
+    </div>
+</body>
+</html>

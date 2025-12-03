@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Zova - Modern Lifestyle Brand</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="table.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #f8f9fa;
+            color: #333;
+        }
+
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 16px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            color: #ff6b6b;
+            letter-spacing: 2px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #555;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #ff6b6b;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 24px;
+            opacity: 0.95;
+        }
+
+        .hero-btn {
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 14px 40px;
+            font-size: 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 24px rgba(255,107,107,0.4);
+        }
+
+        /* Main Content Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        h1, h2 { 
+            color: #333; 
+            margin: 32px 0 16px 0;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 40px;
+            padding-bottom: 12px;
+            border-bottom: 3px solid #ff6b6b;
+            display: inline-block;
+        }
+        
+        .section { 
+            background: white; 
+            padding: 24px; 
+            margin-bottom: 32px; 
+            border-radius: 12px;
+            box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+        }
+
+        /* Moving text section */
+        .moving-text-section { 
+            overflow: hidden; 
+            height: 60px; 
+            display: flex;
+            align-items: center;
+        }
+
+        /* Sticky word in header */
+        .sticky-header {
+            background: #fff3cd;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 12px 0;
+        }
+
+        /* Boxes section */
+        .boxes-section {
+            position: relative;
+            height: 500px;
+            background: #f9f9f9;
+            border: 1px dashed #ddd;
+            border-radius: 8px;
+        }
+
+        /* Overflow box in boxes section */
+        .overflow-box {
+            position: absolute;
+            right: 24px;
+            top: 20px;
+            width: 340px;
+            border: 1px solid #d0d7df;
+            background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 40%, #e8f2ff 100%);
+            padding: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            z-index: 50;
+        }
+
+        .overflow-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 36px rgba(20,60,120,0.18);
+        }
+
+        .overflow-box h3 {
+            background: linear-gradient(90deg,#2b7cff,#5ad0ff);
+            color: white;
+            margin: 0 -10px 10px -10px;
+            padding: 8px 12px;
+            font-weight: 600;
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+        }
+
+        .overflow-box .overflow-content {
+            max-height: 140px;
+            overflow: auto;
+            padding-right: 6px;
+        }
+
+        .overflow-box .overflow-content p { margin: 8px 0; font-size: 13px; }
+
+        /* Dip container section */
+        .main-dip {
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(135deg, #ff6b6b 0%, #ee5a6f 50%, #c72c48 100%);
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .main-dip h2 {
+            color: white;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 24px;
+        }
+
+        .dips-wrapper {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .dip {
+            flex: 1;
+            min-width: 240px;
+            max-width: 280px;
+            padding: 16px;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.1);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            cursor: pointer;
+            color: white;
+        }
+
+        .dip-1 {
+            background: linear-gradient(180deg, #5ad0ff 0%, #2b7cff 100%);
+        }
+
+        .dip-2 {
+            background: linear-gradient(180deg, #51cf66 0%, #2b8a3e 100%);
+        }
+
+        .dip-3 {
+            background: linear-gradient(180deg, #da77f2 0%, #9c36b5 100%);
+        }
+
+        .dip h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 8px;
+        }
+
+        .dip p {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 8px;
+        }
+
+        .dip:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+        }
+
+        /* Image gallery (flex) */
+        .gallery {
+            display: flex;
+            gap: 16px;
+            overflow-x: auto;
+            padding: 12px 6px;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .gallery::-webkit-scrollbar { height: 10px; }
+        .gallery::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.12); border-radius: 8px; }
+
+        .gallery-item {
+            min-width: 320px;
+            flex: 0 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+            cursor: grab;
+            transition: transform 0.18s ease;
+        }
+
+        .gallery-item.dragging { opacity: 0.45; transform: scale(0.98); }
+        .gallery-item.selected { outline: 4px solid #ff6b6b; transform: scale(1.02); }
+
+        .gallery-item:active { cursor: grabbing; }
+
+        .gallery-item img {
+            display: block;
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .gallery-item .caption {
+            padding: 12px;
+            background: white;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* WND Box controls and styles removed */
+        .end-placeholder { min-height:160px; width:90%; max-width:1000px; margin:20px auto; border:2px dashed #cfd8e3; border-radius:8px; display:flex; align-items:center; justify-content:center; background:#fff; color:#6b6f76; }
+
+        /* Flex Playground styles */
+        .flex-demo { display: flex; gap: 12px; margin-top: 12px; padding: 12px; border-radius: 8px; background: #fff; }
+        .flex-demo .flex-item { background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 8px 20px rgba(0,0,0,0.06); text-align: center; }
+        .flex-demo .flex-item img { width: 100%; height: 140px; object-fit: cover; display: block; }
+        .flex-demo .label { padding: 8px; font-weight: 600; color: #333; }
+        .demo-row { margin-bottom: 18px; }
+        .demo-title { font-weight: 700; margin-bottom: 8px; color:#444; }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 32px 40px;
+            margin-top: 60px;
+        }
+
+        footer p { margin: 8px 0; }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-links {
+                flex-direction: column;
+                gap: 12px;
+                text-align: center;
+            }
+            .hero h1 { font-size: 32px; }
+            .hero p { font-size: 16px; }
+            .dips-wrapper {
+                flex-direction: column;
+            }
+            .dip {
+                max-width: 100%;
+            }
+        }
+        /* Embedded demo iframe styles */
+        .embedded-demo-section { margin: 28px 0; }
+        .embedded-demo-wrap { width: 100%; max-width: 1100px; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 12px 36px rgba(20,40,80,0.08); }
+        .embedded-demo-iframe { width: 100%; height: 820px; border: 0; display: block; }
+        @media (max-width: 900px) { .embedded-demo-iframe { height: 1000px; } }
+
+        /* Zova inline animated floating box (added) */
+        .zova-animated-section { margin: 28px 0; }
+        .zova-floating-wrap { height: 340px; display:flex; align-items:center; justify-content:center; position:relative; perspective:1200px; }
+        .zova-floating-grid { display:flex; gap:18px; align-items:center; justify-content:center; flex-wrap:wrap; }
+
+        .zova-floating-box {
+            width: 200px; height: 200px; border-radius: 18px;
+            background: linear-gradient(135deg,#7b2ff7 0%, #ff61a6 50%, #ffd56b 100%);
+            box-shadow: 0 22px 48px rgba(123,47,247,0.14), 0 6px 18px rgba(0,0,0,0.12) inset;
+            display:flex; align-items:center; justify-content:center; color: white; font-weight:700; font-size:18px;
+            transform: translate3d(0,0,0);
+            animation: zovaMove 7s ease-in-out infinite, zovaHue 5.5s linear infinite;
+        }
+        .zova-floating-box:hover { animation-play-state: paused; cursor: pointer; transform: scale(1.04); }
+
+        /* Rotating box */
+        .zova-rotate-box {
+            width: 170px; height: 170px; border-radius: 16px;
+            background: linear-gradient(135deg,#00d4ff 0%, #6a5cff 60%);
+            color: white; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:16px;
+            box-shadow: 0 18px 40px rgba(0,212,255,0.12);
+            transform-style: preserve-3d;
+            animation: zovaRotate 5.6s linear infinite, zovaPulse 3.8s ease-in-out infinite;
+        }
+        .zova-rotate-box:hover { animation-play-state: paused; }
+
+        @keyframes zovaRotate {
+            0% { transform: rotateY(0deg) translateZ(0) scale(1); }
+            50% { transform: rotateY(180deg) translateZ(20px) scale(1.06); }
+            100% { transform: rotateY(360deg) translateZ(0) scale(1); }
+        }
+        @keyframes zovaPulse { 0%,100% { box-shadow: 0 18px 40px rgba(0,212,255,0.06); } 50% { box-shadow: 0 30px 60px rgba(106,92,255,0.18); } }
+
+        /* Oscillating box (up/down + forward/back via scale) */
+        .zova-oscillate-box {
+            width: 180px; height: 180px; border-radius: 14px;
+            background: linear-gradient(135deg,#ff9a9e 0%, #fecfef 50%, #fff7a6 100%);
+            color: #222; font-weight:700; display:flex; align-items:center; justify-content:center; font-size:15px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+            animation: zovaOscillate 3.2s ease-in-out infinite;
+        }
+        .zova-oscillate-box:hover { animation-play-state: paused; }
+
+        @keyframes zovaOscillate {
+            0% { transform: translateY(0) scale(1); }
+            25% { transform: translateY(-48px) scale(1.04); }
+            50% { transform: translateY(0) scale(1.08); }
+            75% { transform: translateY(48px) scale(1.04); }
+            100% { transform: translateY(0) scale(1); }
+        }
+
+        /* Zoom + Fade box (zoom in/out and shade out/in) */
+        .zova-zoom-box {
+            width: 160px; height: 160px; border-radius: 14px;
+            background: linear-gradient(135deg,#6ef56e 0%, #2bbf7a 50%, #00a86b 100%);
+            color: #fff; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:15px;
+            box-shadow: 0 16px 36px rgba(0,160,107,0.12);
+            animation: zovaZoom 4s ease-in-out infinite, zovaFade 4s ease-in-out infinite;
+            will-change: transform, opacity, box-shadow;
+        }
+        .zova-zoom-box:hover { animation-play-state: paused; transform: scale(1.03); }
+
+        @keyframes zovaZoom {
+            0% { transform: scale(1); }
+            25% { transform: scale(1.12); }
+            50% { transform: scale(1); }
+            75% { transform: scale(0.92); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes zovaFade {
+            0% { opacity: 1; box-shadow: 0 16px 36px rgba(0,160,107,0.12); }
+            40% { opacity: 0.45; box-shadow: 0 6px 12px rgba(0,0,0,0.06); }
+            60% { opacity: 0.45; box-shadow: 0 6px 12px rgba(0,0,0,0.06); }
+            100% { opacity: 1; box-shadow: 0 16px 36px rgba(0,160,107,0.12); }
+        }
+
+        /* Shade in/out box (darken/lighten background and shadow) */
+        .zova-shade-box {
+            width: 160px; height: 160px; border-radius: 14px;
+            background: linear-gradient(135deg,#ffd56b 0%, #ff8a5b 50%, #ff5e7a 100%);
+            color: #111; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:15px;
+            box-shadow: 0 14px 32px rgba(0,0,0,0.08);
+            animation: zovaShade 4.4s ease-in-out infinite;
+            will-change: filter, box-shadow;
+        }
+        .zova-shade-box:hover { animation-play-state: paused; }
+
+        @keyframes zovaShade {
+            0% { filter: brightness(1); box-shadow: 0 14px 32px rgba(0,0,0,0.08); }
+            30% { filter: brightness(0.55); box-shadow: 0 6px 12px rgba(0,0,0,0.18); }
+            60% { filter: brightness(1.1); box-shadow: 0 22px 46px rgba(0,0,0,0.06); }
+            100% { filter: brightness(1); box-shadow: 0 14px 32px rgba(0,0,0,0.08); }
+        }
+
+        /* Simple fade out / fade in box */
+        .zova-fade-box {
+            width: 150px; height: 150px; border-radius: 12px;
+            background: linear-gradient(135deg,#9be7ff 0%, #66d9ff 50%, #33c3ff 100%);
+            color: #023047; font-weight:800; display:flex; align-items:center; justify-content:center; font-size:14px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.08);
+            animation: zovaFadeOnly 3.6s ease-in-out infinite;
+            will-change: opacity, transform;
+        }
+        .zova-fade-box:hover { animation-play-state: paused; }
+
+        @keyframes zovaFadeOnly {
+            0% { opacity: 1; transform: translateY(0); }
+            30% { opacity: 0; transform: translateY(-8px); }
+            60% { opacity: 0; transform: translateY(8px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes zovaMove {
+            0%   { transform: translate(0, 0) rotate(0deg) scale(1); }
+            18%  { transform: translate(140px, -36px) rotate(-6deg) scale(1.03); }
+            36%  { transform: translate(240px, 72px) rotate(4deg) scale(1.06); }
+            54%  { transform: translate(100px, 190px) rotate(-3deg) scale(1.03); }
+            72%  { transform: translate(-40px, 120px) rotate(2deg) scale(1.02); }
+            90%  { transform: translate(-60px, 30px) rotate(-2deg) scale(1.01); }
+            100% { transform: translate(0, 0) rotate(0deg) scale(1); }
+        }
+
+        @keyframes zovaHue {
+            0% { filter: hue-rotate(0deg) saturate(1); }
+            33% { filter: hue-rotate(40deg) saturate(1.06); }
+            66% { filter: hue-rotate(80deg) saturate(1.08); }
+            100% { filter: hue-rotate(0deg) saturate(1); }
+        }
+
+        @media (max-width: 640px) { .zova-floating-box { width: 140px; height: 140px; border-radius: 14px; } .zova-floating-wrap { height: 220px; } .zova-rotate-box, .zova-oscillate-box { width: 120px; height:120px; } }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">ZOVA</div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="#products">Products</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>Welcome to Zova</h1>
+        <p>Experience modern design, powerful features, and beautiful layouts</p>
+        <button class="hero-btn">Get Started</button>
+    </section>
+
+    <!-- Main Content -->
+    <div class="container">
+
+        <!-- Features Section -->
+        <section class="section" id="features">
+            <h2>✨ Featured Components</h2>
+            <p style="margin-top: 16px; line-height: 1.6;">Explore our collection of modern UI components including animated text, sticky elements, z-indexed boxes, scrollable content, and colorful dip containers.</p>
+        </section>
+
+        <!-- Zova Inline Animated Box -->
+        <section class="section zova-animated-section" aria-label="Zova animated demo">
+            <h2 style="margin-bottom:12px;">Zova Highlight: Animated Box</h2>
+            <div class="zova-floating-wrap">
+                <div class="zova-floating-grid">
+                    <div class="zova-rotate-box" role="img" aria-label="Zova rotating box">ROTATE</div>
+                    <div class="zova-floating-box" role="img" aria-label="Zova animated colorful box">ZOVA</div>
+                    <div class="zova-oscillate-box" role="img" aria-label="Zova oscillating box">OSCILLATE</div>
+                    <div class="zova-zoom-box" role="img" aria-label="Zova zoom and fade box">ZOOM</div>
+                    <div class="zova-shade-box" role="img" aria-label="Zova shade box">SHADE</div>
+                    <div class="zova-fade-box" role="img" aria-label="Zova fade box">FADE</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Image Gallery Section -->
+        <section class="section" id="gallery">
+            <h2>Gallery</h2>
+            <p style="margin:12px 0 16px 0; color:#666;">Drag to scroll — a simple flex gallery with three different images.</p>
+            <div class="gallery" id="galleryContainer">
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 1">
+                    <div class="caption">Urban Explorer</div>
+                </div>
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1491557345352-5929e343eb89?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 2">
+                    <div class="caption">Nature Retreat</div>
+                </div>
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 3">
+                    <div class="caption">Architectural Lines</div>
+                </div>
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 4">
+                    <div class="caption">Cozy Interiors</div>
+                </div>
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 5">
+                    <div class="caption">Mountain Calm</div>
+                </div>
+                <div class="gallery-item" draggable="true" tabindex="0">
+                    <img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200&q=80&auto=format&fit=crop" alt="Gallery image 6">
+                    <div class="caption">Street Moments</div>
+                </div>
+            </div>
+        </section>
+        <!-- Flex Playground Section -->
+        <section class="section" id="flex-playground">
+            <h2>Flex Playground</h2>
+            <p style="margin:8px 0 12px 0; color:#666;">Examples of different flex properties (grow, shrink, basis, wrap, order, alignment).</p>
+
+            <div class="demo-row">
+                <div class="demo-title">Flex Grow (flex: 1 / 2 / 3)</div>
+                <div class="flex-demo" style="align-items: stretch;">
+                    <div class="flex-item" style="flex:1"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200&q=80&auto=format&fit=crop"><div class="label">flex:1</div></div>
+                    <div class="flex-item" style="flex:2"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200&q=80&auto=format&fit=crop"><div class="label">flex:2</div></div>
+                    <div class="flex-item" style="flex:3"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&q=80&auto=format&fit=crop"><div class="label">flex:3</div></div>
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <div class="demo-title">Flex Basis & Shrink (flex: 0 1 150px and flex: 0 1 300px)</div>
+                <div class="flex-demo" style="align-items: stretch;">
+                    <div class="flex-item" style="flex:0 1 150px"><img src="https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?w=1200&q=80&auto=format&fit=crop"><div class="label">0 1 150px</div></div>
+                    <div class="flex-item" style="flex:0 1 300px"><img src="https://images.unsplash.com/photo-1491557345352-5929e343eb89?w=1200&q=80&auto=format&fit=crop"><div class="label">0 1 300px</div></div>
+                    <div class="flex-item" style="flex:0 1 120px"><img src="https://images.unsplash.com/photo-1508921912186-1d1a45ebb3c1?w=1200&q=80&auto=format&fit=crop"><div class="label">0 1 120px</div></div>
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <div class="demo-title">Wrap & Justify (wrap, space-between)</div>
+                <div class="flex-demo" style="flex-wrap:wrap; justify-content: space-between;">
+                    <div class="flex-item" style="flex: 0 0 30%"><img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&q=80&auto=format&fit=crop"><div class="label">30%</div></div>
+                    <div class="flex-item" style="flex: 0 0 30%"><img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1200&q=80&auto=format&fit=crop"><div class="label">30%</div></div>
+                    <div class="flex-item" style="flex: 0 0 30%"><img src="https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?w=1200&q=80&auto=format&fit=crop"><div class="label">30%</div></div>
+                </div>
+            </div>
+
+            <div class="demo-row">
+                <div class="demo-title">Order (reordering)</div>
+                <div class="flex-demo" style="align-items: center;">
+                    <div class="flex-item" style="order:2; flex:1"><img src="https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?w=1200&q=80&auto=format&fit=crop"><div class="label">order:2</div></div>
+                    <div class="flex-item" style="order:1; flex:1"><img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&q=80&auto=format&fit=crop"><div class="label">order:1</div></div>
+                    <div class="flex-item" style="order:3; flex:1"><img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=1200&q=80&auto=format&fit=crop"><div class="label">order:3</div></div>
+                </div>
+            </div>
+        </section>
+
+    <!-- Moving Text Section -->
+    <div class="section moving-text-section">
+        <p class="moving-text">This paragraph is moving continuously across the screen 🚀</p>
+    </div>
+
+    <!-- Sticky Word Section -->
+    <div class="section sticky-header">
+        <p>Here is a sentence with only one <span class="sticky-word">STICKY</span> word that remains constant.</p>
+    </div>
+
+    <!-- Boxes with Z-Index and Overflow Box Section -->
+    <div class="section">
+        <h2>Boxes with Z-Index</h2>
+        <div class="boxes-section">
+            <div class="box1">Box 1</div>
+            <div class="box2">Box 2</div>
+            <div class="box3">Box 3</div>
+
+            <!-- Overflow Box -->
+            <div class="overflow-box">
+                <h3>Notes</h3>
+                <div class="overflow-content">
+                    <p>This is the first paragraph inside the overflow box. It demonstrates how content will scroll when it exceeds the visible area.</p>
+                    <p>Second paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    <p>Third paragraph: Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem.</p>
+                    <p>Fourth paragraph: Duis sagittis ipsum. Praesent mauris.</p>
+                    <p>Fifth paragraph: Mauris massa. Vestibulum lacinia arcu.</p>
+                    <p>Sixth paragraph: Curabitur sodales ligula in libero.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Dip Container Section -->
+    <div class="section">
+        <h2>Dip Container - Flex Direction: ROW (Horizontal)</h2>
+        <div class="main-dip">
+            <div class="dips-wrapper" style="flex-direction: row;">
+
+                <!-- Dip 1: Blue -->
+                <div class="dip dip-1">
+                    <h3>Dip 1 - Blue</h3>
+                    <p>This is the first inner dip with a cool blue gradient. It contains unique content and styling.</p>
+                    <p>Hover over me to see the lift effect!</p>
+                </div>
+
+                <!-- Dip 2: Green -->
+                <div class="dip dip-2">
+                    <h3>Dip 2 - Green</h3>
+                    <p>This is the second inner dip with a fresh green gradient. Each dip is independent and styled differently.</p>
+                    <p>They align beautifully in a flex container.</p>
+                </div>
+
+                <!-- Dip 3: Purple -->
+                <div class="dip dip-3">
+                    <h3>Dip 3 - Purple</h3>
+                    <p>This is the third inner dip with a vibrant purple gradient. All three dips sit inside the main container.</p>
+                    <p>Try hovering to see the interactive effect!</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Dip Container Section - Column -->
+    <div class="section">
+        <h2>Dip Container - Flex Direction: COLUMN (Vertical)</h2>
+        <div class="main-dip" style="background: linear-gradient(135deg, #4c6ef5 0%, #3b5bdb 50%, #2f5aa0 100%);">
+            <div class="dips-wrapper" style="flex-direction: column;">
+
+                <!-- Dip 1: Blue -->
+                <div class="dip dip-1">
+                    <h3>Dip 1 - Blue</h3>
+                    <p>This is the first inner dip with a cool blue gradient. Stacked vertically using flex-direction: column.</p>
+                    <p>Hover over me to see the lift effect!</p>
+                </div>
+
+                <!-- Dip 2: Green -->
+                <div class="dip dip-2">
+                    <h3>Dip 2 - Green</h3>
+                    <p>This is the second inner dip with a fresh green gradient. Now displayed below the first dip.</p>
+                    <p>They align beautifully in a flex container.</p>
+                </div>
+
+                <!-- Dip 3: Purple -->
+                <div class="dip dip-3">
+                    <h3>Dip 3 - Purple</h3>
+                    <p>This is the third inner dip with a vibrant purple gradient. Stack continues downward.</p>
+                    <p>Try hovering to see the interactive effect!</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- End placeholder box (empty) -->
+    <div class="end-placeholder" id="endPlaceholder">End placeholder — created boxes will appear here.</div>
+
+    <!-- Embedded: All Combined Demos (from all_combined.html) -->
+    <section class="embedded-demo-section section" id="all-demos">
+        <h2>All Demos (Embedded)</h2>
+        <p style="color:#666; margin-bottom:12px;">The combined demo page is embedded here for quick preview. If it appears blank, make sure you've started a local server and the file `all_combined.html` is present.</p>
+        <div class="embedded-demo-wrap">
+            <iframe class="embedded-demo-iframe" src="all_combined.html" title="All Combined Demos"></iframe>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Zova. All rights reserved.</p>
+        <p>Crafted with passion for modern web experiences.</p>
+    </footer>
+
+    <script>
+        // Drag-to-scroll for gallery
+        (function(){
+            const slider = document.getElementById('galleryContainer');
+            let isDown = false;
+            let startX;
+            let scrollLeft;
+
+            if (!slider) return;
+
+            slider.addEventListener('mousedown', (e) => {
+                // don't start scroll drag when the user intends to drag an item (reorder)
+                if (e.target.closest && e.target.closest('.gallery-item')) return;
+                isDown = true;
+                slider.classList.add('active');
+                startX = e.pageX - slider.offsetLeft;
+                scrollLeft = slider.scrollLeft;
+            });
+            slider.addEventListener('mouseleave', () => { isDown = false; slider.classList.remove('active'); });
+            slider.addEventListener('mouseup', () => { isDown = false; slider.classList.remove('active'); });
+            slider.addEventListener('mousemove', (e) => {
+                if(!isDown) return;
+                e.preventDefault();
+                const x = e.pageX - slider.offsetLeft;
+                const walk = (x - startX) * 1.5; // scroll-fast
+                slider.scrollLeft = scrollLeft - walk;
+            });
+
+            // Touch support
+            let touchStartX = 0;
+            slider.addEventListener('touchstart', (e) => { touchStartX = e.touches[0].clientX; });
+            slider.addEventListener('touchmove', (e) => {
+                const touchX = e.touches[0].clientX;
+                const delta = touchStartX - touchX;
+                slider.scrollLeft += delta;
+                touchStartX = touchX;
+            });
+
+            // --- Drag-and-drop reordering + selection ---
+            const items = slider.querySelectorAll('.gallery-item');
+            let draggedEl = null;
+            let wasDragged = false;
+
+            items.forEach(item => {
+                // enable HTML5 drag
+                item.addEventListener('dragstart', (e) => {
+                    draggedEl = item;
+                    item.classList.add('dragging');
+                    wasDragged = false;
+                    try { e.dataTransfer.setData('text/plain', 'drag'); } catch (err) {}
+                });
+
+                item.addEventListener('dragend', () => {
+                    if (draggedEl) draggedEl.classList.remove('dragging');
+                    draggedEl = null;
+                    // brief debounce to avoid click immediately after drag
+                    wasDragged = true;
+                    setTimeout(() => wasDragged = false, 50);
+                });
+
+                // click to select (toggle)
+                item.addEventListener('click', (e) => {
+                    if (wasDragged) return; // ignore click coming from drag
+                    item.classList.toggle('selected');
+                });
+            });
+
+            slider.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                const afterElement = getDragAfterElement(slider, e.clientX);
+                const dragging = document.querySelector('.gallery-item.dragging');
+                if (!dragging) return;
+                if (afterElement == null) {
+                    slider.appendChild(dragging);
+                } else {
+                    slider.insertBefore(dragging, afterElement);
+                }
+            });
+
+            function getDragAfterElement(container, x) {
+                const draggableElements = [...container.querySelectorAll('.gallery-item:not(.dragging)')];
+                return draggableElements.reduce((closest, child) => {
+                    const box = child.getBoundingClientRect();
+                    const offset = x - box.left - box.width / 2;
+                    if (offset < 0 && offset > (closest.offset || -Infinity)) {
+                        return { offset: offset, element: child };
+                    } else {
+                        return closest;
+                    }
+                }, { offset: -Infinity }).element || null;
+            }
+
+        })();
+    </script>
+
+    </script>
+</body>
+</html>
+
+

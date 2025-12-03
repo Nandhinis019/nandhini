@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Combined Table Demos</title>
+    <style>
+/* --- Begin merged styles (from table.css + overflow table tweaks) --- */
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    height: 200vh; /* Scroll space for sticky */
+    position: relative; /* positioning context for absolute boxes */
+    min-height: 700px;
+    background: #f6f8fb;
+    color: #222;
+}
+
+/* Box 1 - Black */
+.box1 {
+    width: 200px;
+    height: 120px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Box 2 - Red */
+.box2 {
+    width: 200px;
+    height: 120px;
+    background-color: red;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Box 3 - Violet */
+.box3 {
+    width: 200px;
+    height: 120px;
+    background-color: violet;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Explicit stack order (adjustable) */
+.box1 { z-index: 100; }
+.box2 { z-index: 200; }
+.box3 { z-index: 300; }
+
+/* Absolute positioning and hover interaction */
+.box1, .box2, .box3 {
+    position: absolute;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    cursor: pointer;
+}
+
+/* Position the boxes (edit `top`/`left` to move them) */
+.box1 { top: 320px; left: 40px; }
+.box2 { top: 280px; left: 160px; }
+.box3 { top: 240px; left: 280px; }
+
+/* Hover brings the hovered box to the front */
+.box1:hover, .box2:hover, .box3:hover {
+    z-index: 9999;
+    transform: translateY(-8px) scale(1.06);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.22);
+}
+
+/* Moving Text Animation */
+.moving-text {
+    white-space: nowrap;
+    font-size: 22px;
+    animation: move 8s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes move {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Sticky Single Word */
+.sticky-word {
+    position: sticky;
+    top: 0;
+    background: yellow;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Overflow box styles */
+.overflow-box {
+    width: 340px;
+    border: 1px solid #d0d7df;
+    /* colorful gradient background */
+    background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 40%, #e8f2ff 100%);
+    padding: 10px;
+    margin: 18px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    /* place on the right side by default */
+    position: absolute;
+    right: 24px; /* moved slightly closer to edge */
+    top: 120px;  /* moved lower */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.overflow-box h3 { margin: 6px 0 10px 0; font-size: 18px; }
+.overflow-box .overflow-content {
+    max-height: 140px; /* visible height */
+    overflow: auto; /* enable scrolling when content exceeds */
+    padding-right: 6px;
+}
+.overflow-box .overflow-content p { margin: 8px 0; }
+
+/* Title accents and hover */
+.overflow-box h3 {
+    background: linear-gradient(90deg,#2b7cff,#5ad0ff);
+    color: white;
+    margin: 0 -10px 10px -10px;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.overflow-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(20,60,120,0.18);
+}
+
+/* Responsive fallback: stack on small screens */
+@media (max-width: 640px) {
+    .overflow-box {
+        position: static;
+        width: 100%;
+        margin: 12px 0;
+    }
+    .overflow-box h3 { margin: 6px 0 10px 0; border-radius: 4px; }
+}
+
+/* Table & overflow-cell rules (from overflow_table.html) */
+table { border-collapse: collapse; width: 100%; max-width: 900px; margin-top: 18px; }
+th, td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
+th { background: #f4f4f4; text-align: left; }
+
+/* Overflow cell: fixed height with scroll when content exceeds */
+.overflow-cell {
+    max-height: 140px;
+    width: 100%;
+    overflow: auto; /* enables scrollbar when content is larger */
+    padding-right: 8px; /* avoid scrollbar overlaying text */
+    box-sizing: border-box;
+    background: #fff;
+}
+.overflow-cell p { margin: 8px 0; line-height: 1.4; }
+
+/* Small helpers */
+.container { max-width: 1000px; margin: 0 auto; }
+.section { background: white; padding: 18px; margin-bottom: 18px; border-radius: 10px; box-shadow: 0 8px 20px rgba(0,0,0,0.04); }
+
+/* Small header */
+h1 { margin-bottom: 6px; }
+
+/* Ensure space for absolute boxes */
+.box-area { min-height: 420px; position: relative; }
+
+/* End merged styles */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Combined Table Demos</h1>
+        <p class="section">This page merges the moving text, sticky word, z-index boxes, overflow notes box, and the example table with scrollable cells into one file for easy viewing.</p>
+
+        <!-- Moving paragraphs -->
+        <div class="section">
+            <h2>Moving Text</h2>
+            <p class="moving-text">This paragraph is moving continuously across the screen 🚀</p>
+            <p class="moving-text">Another moving paragraph slides by — watch it go!</p>
+            <p class="moving-text">Third moving line: animated and looping.</p>
+        </div>
+
+        <!-- Sticky word -->
+        <div class="section">
+            <h2>Sticky Word</h2>
+            <p>Here is a sentence with only one <span class="sticky-word">STICKY</span> word that remains constant at top while you scroll.</p>
+        </div>
+
+        <!-- Boxes with overflow box -->
+        <div class="section box-area">
+            <h2>Boxes with Z-Index & Notes</h2>
+            <p style="margin-bottom:12px;">Hover a box to bring it forward. The notes panel to the right demonstrates an overflow container.</p>
+
+            <!-- Overflow notes box -->
+            <div class="overflow-box" aria-label="Notes">
+                <h3>Notes</h3>
+                <div class="overflow-content">
+                    <p>This is the first paragraph inside the overflow box. It demonstrates how content will scroll when it exceeds the visible area.</p>
+                    <p>Second paragraph: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero.</p>
+                    <p>Third paragraph: Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+                    <p>Fourth paragraph: Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+                    <p>Fifth paragraph: Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora.</p>
+                    <p>Sixth paragraph: Curabitur sodales ligula in libero. Sed dignissim lacinia nunc.</p>
+                </div>
+            </div>
+
+            <!-- Boxes positioned absolutely inside .box-area -->
+            <div class="box1">Box 1</div>
+            <div class="box2">Box 2</div>
+            <div class="box3">Box 3</div>
+
+        </div>
+
+        <!-- Table demo with overflow cells -->
+        <div class="section">
+            <h2>Table with Overflowing Paragraphs</h2>
+            <p>This table demonstrates using the CSS <code>overflow</code> property inside table cells to keep cell sizes fixed while allowing inner content to scroll.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width:160px">Item</th>
+                        <th>Details (scrollable)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Row 1</td>
+                        <td class="overflow-cell">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio.</p>
+                            <p>Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet.</p>
+                            <p>Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta.</p>
+                            <p>Mauris massa. Vestibulum lacinia arcu eget nulla. Class aptent taciti sociosqu ad litora.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Row 2</td>
+                        <td class="overflow-cell">
+                            <p>Short paragraph only.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Row 3</td>
+                        <td class="overflow-cell">
+                            <p>Line A: Curabitur sodales ligula in libero.</p>
+                            <p>Line B: Sed dignissim lacinia nunc.</p>
+                            <p>Line C: Curabitur tortor. Pellentesque nibh.</p>
+                            <p>Line D: Aenean quam. In scelerisque sem at dolor.</p>
+                            <p>Line E: Maecenas mattis. Sed convallis tristique sem.</p>
+                            <p>Line F: Proin ut ligula vel nunc egestas porttitor.</p>
+                            <p>Line G: Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p style="margin-top:18px;">To change the visible height of the scrollable area, edit the <code>max-height</code> value in the <code>.overflow-cell</code> rule in the top &lt;style&gt; block.</p>
+        </div>
+
+    </div>
+</body>
+</html>

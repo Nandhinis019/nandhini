@@ -1,0 +1,149 @@
+body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    height: 200vh; /* Scroll space for sticky */
+    position: relative; /* positioning context for absolute boxes */
+    min-height: 700px;
+}
+
+/* Box 1 - Black */
+.box1 {
+    width: 200px;
+    height: 120px;
+    background-color: black;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Box 2 - Red */
+.box2 {
+    width: 200px;
+    height: 120px;
+    background-color: red;
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Box 3 - Violet */
+.box3 {
+    width: 200px;
+    height: 120px;
+    background-color: violet;
+    color: white;
+    text-align: center;
+    line-height: 120px;
+    font-weight: bold;
+}
+
+/* Explicit stack order (adjustable) */
+.box1 { z-index: 100; }
+.box2 { z-index: 200; }
+.box3 { z-index: 300; }
+
+/* Absolute positioning and hover interaction */
+.box1, .box2, .box3 {
+    position: absolute;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+    cursor: pointer;
+}
+
+/* Position the boxes (edit `top`/`left` to move them) */
+.box1 { top: 320px; left: 40px; }
+.box2 { top: 280px; left: 160px; }
+.box3 { top: 240px; left: 280px; }
+
+/* Hover brings the hovered box to the front */
+.box1:hover, .box2:hover, .box3:hover {
+    z-index: 9999;
+    transform: translateY(-8px) scale(1.06);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.22);
+}
+
+/* Moving Text Animation */
+.moving-text {
+    white-space: nowrap;
+    font-size: 22px;
+    animation: move 8s linear infinite;
+    margin-bottom: 20px;
+}
+
+@keyframes move {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Sticky Single Word */
+.sticky-word {
+    position: sticky;
+    top: 0;
+    background: yellow;
+    padding: 5px;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Overflow box styles */
+.overflow-box {
+    width: 340px;
+    border: 1px solid #d0d7df;
+    /* colorful gradient background */
+    background: linear-gradient(180deg, #ffffff 0%, #f0f7ff 40%, #e8f2ff 100%);
+    padding: 10px;
+    margin: 18px 0;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    /* place on the right side by default */
+    position: absolute;
+    right: 24px; /* moved slightly closer to edge */
+    top: 120px;  /* moved lower */
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.overflow-box h3 { margin: 6px 0 10px 0; font-size: 18px; }
+.overflow-box .overflow-content {
+    max-height: 140px; /* visible height */
+    overflow: auto; /* enable scrolling when content exceeds */
+    padding-right: 6px;
+}
+.overflow-box .overflow-content p { margin: 8px 0; }
+
+/* Title accents and hover */
+.overflow-box h3 {
+    background: linear-gradient(90deg,#2b7cff,#5ad0ff);
+    color: white;
+    margin: 0 -10px 10px -10px;
+    padding: 8px 12px;
+    font-weight: 600;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+.overflow-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 36px rgba(20,60,120,0.18);
+}
+
+/* Responsive fallback: stack on small screens */
+@media (max-width: 640px) {
+    .overflow-box {
+        position: static;
+        width: 100%;
+        margin: 12px 0;
+    }
+    .overflow-box h3 { margin: 6px 0 10px 0; border-radius: 4px; }
+}
+
+
+
+
+
+
+
+
+
+
