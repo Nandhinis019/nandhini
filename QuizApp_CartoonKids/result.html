@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Challenge - Result</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-900 via-slate-900 to-black min-h-screen text-white">
+
+  <div class="max-w-5xl mx-auto py-10 px-4 md:px-6 space-y-8">
+
+    <div class="bg-black/40 border border-white/10 rounded-3xl shadow-2xl p-8 space-y-6">
+      <div class="text-center space-y-2">
+        <h1 class="text-4xl md:text-5xl font-extrabold">Your Result 🎯</h1>
+        <p class="text-gray-300 text-sm">
+          Hero: <span id="resultPlayerName" class="font-semibold"></span> |
+          Level: <span id="resultLevel" class="font-semibold capitalize"></span>
+        </p>
+      </div>
+
+      <div class="flex justify-center mt-2">
+        <img id="resultAvatar" class="w-20 h-20 rounded-full border-4 border-yellow-300 bg-white object-cover" alt="Avatar">
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 text-center mt-4">
+        <div class="space-y-1 bg-white/5 rounded-2xl py-4">
+          <p class="text-sm text-gray-400">Score</p>
+          <p id="scoreText" class="text-3xl font-bold"></p>
+        </div>
+        <div class="space-y-1 bg-white/5 rounded-2xl py-4">
+          <p class="text-sm text-gray-400">Percentage</p>
+          <p id="percentageText" class="text-3xl font-bold"></p>
+        </div>
+        <div class="space-y-1 bg-white/5 rounded-2xl py-4">
+          <p class="text-sm text-gray-400">Grade</p>
+          <p id="gradeText" class="text-3xl font-bold"></p>
+        </div>
+      </div>
+
+      <div class="text-center text-lg text-gray-200 mt-2">
+        <p id="emojiMessage" class="text-3xl mb-2"></p>
+        <p>
+          Correct: <span id="correctCount" class="text-green-400 font-semibold"></span> ✔️ |
+          Wrong: <span id="wrongCount" class="text-red-400 font-semibold"></span> ❌
+        </p>
+      </div>
+    </div>
+
+    <!-- Wrong answers section -->
+    <div class="bg-black/40 border border-red-500/30 rounded-3xl shadow-xl p-6 space-y-4 max-h-80 overflow-y-auto">
+      <h2 class="text-2xl font-bold flex items-center gap-2">Incorrect Answers ❌</h2>
+      <ul id="wrongList" class="space-y-3 text-sm md:text-base">
+        <!-- Filled by JS -->
+      </ul>
+      <p class="text-xs text-gray-400">Review these and try again to improve your rank! 🧠</p>
+    </div>
+
+    <!-- Leaderboard -->
+    <div class="bg-black/40 border border-yellow-400/40 rounded-3xl shadow-xl p-6 space-y-4">
+      <div class="flex items-center justify-between">
+        <h2 class="text-2xl font-bold flex items-center gap-2">Leaderboard 🏆</h2>
+        <button id="clearLeaderboard"
+          class="px-4 py-2 rounded-2xl bg-red-600 hover:bg-red-700 text-sm">
+          Clear Leaderboard
+        </button>
+      </div>
+
+      <div class="overflow-x-auto">
+        <table class="min-w-full text-sm md:text-base">
+          <thead class="border-b border-white/20 text-left">
+            <tr class="text-gray-300">
+              <th class="py-2 pr-4">Rank</th>
+              <th class="py-2 pr-4">Hero</th>
+              <th class="py-2 pr-4">Level</th>
+              <th class="py-2 pr-4">Score</th>
+              <th class="py-2 pr-4">%</</th>
+              <th class="py-2 pr-4">Date</th>
+            </tr>
+          </thead>
+          <tbody id="leaderboardBody" class="divide-y divide-white/10">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap gap-4 justify-center">
+      <button onclick="window.location.href='quiz.html'"
+        class="px-6 py-3 rounded-2xl bg-blue-600 hover:bg-blue-700 shadow-lg text-lg">
+        Try Same Level Again 🔁
+      </button>
+      <button onclick="window.location.href='index.html'"
+        class="px-6 py-3 rounded-2xl bg-green-600 hover:bg-green-700 shadow-lg text-lg">
+        Back to Home 🏠
+      </button>
+    </div>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Challenge - Play</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-indigo-900 via-blue-900 to-gray-900 min-h-screen text-white">
+
+  <div class="max-w-5xl mx-auto py-8 px-4 md:px-6 space-y-6">
+
+    <!-- Top Bar -->
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+      <div class="flex items-center gap-3">
+        <img id="quizAvatar" class="w-12 h-12 rounded-full border-4 border-yellow-300 bg-white object-cover" alt="Avatar">
+        <div>
+          <h1 class="text-2xl md:text-3xl font-extrabold">🎮 Quiz Arena</h1>
+          <p class="text-gray-300 text-xs md:text-sm">
+            Hero: <span id="topPlayerName" class="font-semibold"></span> |
+            Level: <span id="topLevel" class="font-semibold capitalize"></span>
+          </p>
+        </div>
+      </div>
+
+      <div class="flex-1 md:px-6">
+        <p class="text-xs text-gray-300 mb-1">
+          Progress: <span id="progressText">0 / 20</span>
+        </p>
+        <div class="w-full bg-white/10 rounded-full h-3 overflow-hidden">
+          <div id="progressBar"
+               class="h-3 rounded-full bg-gradient-to-r from-pink-500 to-yellow-400 transition-all duration-500"
+               style="width: 0%;"></div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <div class="text-center">
+          <p class="text-xs text-gray-300">Time Left</p>
+          <div id="timerCircle"
+               class="w-14 h-14 rounded-full border-4 border-pink-500 flex items-center justify-center text-xl font-bold">
+            <span id="timerText">20</span>
+          </div>
+        </div>
+
+        <button id="soundToggle"
+          class="px-3 py-2 rounded-2xl bg-white/10 border border-white/20 text-xs md:text-sm flex items-center gap-1 hover:bg-white/20">
+          <span id="soundIcon">🔊</span>
+          <span id="soundLabel">Sound ON</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Question Card -->
+    <div class="bg-black/40 border border-white/10 rounded-3xl shadow-2xl p-6 md:p-8 space-y-6 relative overflow-hidden">
+
+      <!-- Animated emoji feedback -->
+      <div id="feedbackEmoji"
+           class="pointer-events-none absolute inset-0 flex items-center justify-center text-7xl opacity-0 scale-50 transition-all duration-500">
+      </div>
+
+      <div class="space-y-2">
+        <p id="questionNumber" class="text-sm text-gray-300 uppercase tracking-wide"></p>
+        <h2 id="questionText" class="text-2xl md:text-3xl font-bold min-h-[60px]">
+          Loading question...
+        </h2>
+      </div>
+
+      <div id="optionsContainer" class="grid grid-cols-1 gap-3 mt-4">
+        <!-- Options injected by JS -->
+      </div>
+
+      <p class="text-xs text-gray-400 mt-4">
+        Tip: Answer quickly! ⏳ If time runs out, the question will be marked wrong.
+      </p>
+    </div>
+  </div>
+
+  <!-- Sounds -->
+  <audio id="correctSound" src="sounds/correct.mp3"></audio>
+  <audio id="wrongSound" src="sounds/wrong.mp3"></audio>
+
+  <script src="script.js"></script>
+</body>
+</html>

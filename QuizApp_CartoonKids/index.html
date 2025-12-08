@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Quiz Challenge - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .char-img {
+      width: 90px;
+      height: 90px;
+      border-radius: 20px;
+      border: 4px solid transparent;
+      background: #ffffff;
+      cursor: pointer;
+      transition: 0.3s;
+      object-fit: cover;
+    }
+    .char-img:hover {
+      transform: scale(1.12);
+    }
+    .char-img.selected {
+      border-color: gold;
+      transform: scale(1.18);
+      box-shadow: 0 0 20px gold;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-purple-900 via-indigo-900 to-gray-900 min-h-screen flex items-center justify-center text-white">
+
+  <div class="max-w-2xl w-full bg-black/40 rounded-3xl shadow-2xl p-8 space-y-8 border border-white/10 mx-4">
+    <div class="text-center space-y-2">
+      <h1 class="text-4xl md:text-5xl font-extrabold tracking-wide">
+        🎮 Ultimate Quiz Arena
+      </h1>
+      <p class="text-gray-300">Choose your hero and challenge level to start the game!</p>
+    </div>
+
+    <!-- Character Selection -->
+    <div class="space-y-3">
+      <label class="block text-lg font-semibold">Choose Your Character 🎭</label>
+      <div id="characterList" class="grid grid-cols-3 gap-4 justify-items-center">
+        <img src="assets/boy.png" alt="Boy" class="char-img" data-char="Boy">
+        <img src="assets/girl.png" alt="Girl" class="char-img" data-char="Girl">
+        <img src="assets/superhero.png" alt="Superhero" class="char-img" data-char="Superhero">
+        <img src="assets/ninja.png" alt="Ninja" class="char-img" data-char="Ninja">
+        <img src="assets/wizard.png" alt="Wizard" class="char-img" data-char="Wizard">
+        <img src="assets/scientist.png" alt="Scientist" class="char-img" data-char="Scientist">
+      </div>
+      <p id="charError" class="text-red-400 text-sm hidden mt-1">Please select a character 😊</p>
+    </div>
+
+    <!-- Character Name -->
+    <div class="space-y-3">
+      <label class="block text-lg font-semibold">Character Name ✍️</label>
+      <input
+        id="characterName"
+        type="text"
+        placeholder="Enter your hero name..."
+        class="w-full px-4 py-3 rounded-2xl bg-white/10 border border-white/20 focus:outline-none focus:ring-2 focus:ring-pink-500 placeholder-gray-400"
+      />
+      <p id="nameError" class="text-red-400 text-sm hidden mt-1">Please enter a name 😊</p>
+    </div>
+
+    <!-- Level Selection -->
+    <div class="space-y-4">
+      <p class="text-lg font-semibold mb-2">Select Difficulty</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <button data-level="easy"
+          class="level-btn px-6 py-3 rounded-2xl bg-green-600 hover:bg-green-700 shadow-lg text-lg flex items-center justify-between">
+          <span>Easy</span><span>😄</span>
+        </button>
+        <button data-level="medium"
+          class="level-btn px-6 py-3 rounded-2xl bg-yellow-500 hover:bg-yellow-600 shadow-lg text-lg flex items-center justify-between">
+          <span>Medium</span><span>🤔</span>
+        </button>
+        <button data-level="hard"
+          class="level-btn px-6 py-3 rounded-2xl bg-red-600 hover:bg-red-700 shadow-lg text-lg flex items-center justify-between">
+          <span>Hard</span><span>😈</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="text-sm text-gray-400 text-center">
+      🔊 Sound is <span id="soundStatus" class="font-semibold text-green-400">ON</span> by default (you can toggle inside quiz)
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
