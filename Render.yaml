@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: cicd-demo
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+
+
+
+Requirements.txt
+flask
+gunicorn
